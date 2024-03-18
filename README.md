@@ -21,7 +21,7 @@
 ```
 python>=3.7.0
 pytorch>=1.7.0
-recbole>=1.0.0
+recbole>=1.0.1
 ```
 
 ## Quick-Start
@@ -63,13 +63,13 @@ We list currently supported models according to category:
 * **[Rel-MF](recbole_debias/model/debiased_recommender/rel_mf.py)** from Yuta *et al.*: [Unbiased Recommender Learning from Missing-Not-At-Random Implicit Feedback](https://arxiv.org/pdf/1909.03601.pdf) (WSDM 2020).
 
 ## Datasets
- The datasets used can be downloaded from [Datasets Link](https:...).
+ The datasets used can be downloaded from [Datasets Link](https://drive.google.com/drive/folders/1W6fvJN9ZjuyeqsIuUeodDJk_ajajHkoG).
 
-## Results
+## Details
 
-- Results on [`Yahoo!R3`](results/yahoo.md) dataset; 
-- Results on [`KuaiRec`](results/kuai.md) dataset; 
-- Results on [`MovieLens-100k`](results/ml.md) dataset; 
+- Details on [`Yahoo!R3`](details/yahoo.md) dataset; 
+- Details on [`KuaiRec`](details/kuai.md) dataset; 
+- Details on [`MovieLens-100k`](details/ml.md) dataset; 
 
 ## The Team
 
@@ -87,5 +87,12 @@ Please cite the following paper as the reference if you use our code or processe
   author={Wayne Xin Zhao and Shanlei Mu and Yupeng Hou and Zihan Lin and Kaiyuan Li and Yushuo Chen and Yujie Lu and Hui Wang and Changxin Tian and Xingyu Pan and Yingqian Min and Zhichao Feng and Xinyan Fan and Xu Chen and Pengfei Wang and Wendi Ji and Yaliang Li and Xiaoling Wang and Ji-Rong Wen},
   booktitle={{CIKM}},
   year={2021}
+}
+@inproceedings{recbole[2.0],
+  title={RecBole 2.0: Towards a More Up-to-Date Recommendation Library},
+  author={Zhao, Wayne Xin and Hou, Yupeng and Pan, Xingyu and Yang, Chen and Zhang, Zeyu and Lin, Zihan and Zhang, Jingsen and Bian, Shuqing and Tang, Jiakai and Sun, Wenqi and others},
+  booktitle={Proceedings of the 31st ACM International Conference on Information \& Knowledge Management},
+  pages={4722--4726},
+  year={2022}
 }
 

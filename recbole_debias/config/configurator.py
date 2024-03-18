@@ -7,6 +7,7 @@ import os
 from recbole.config.configurator import Config as RecBole_Config
 
 from recbole_debias.utils import get_model
+from recbole_debias.evaluator import update_metrics
 
 
 class Config(RecBole_Config):
@@ -28,6 +29,7 @@ class Config(RecBole_Config):
             config_file_list (list of str): the external config file, it allows multiple config files, default is None.
             config_dict (dict): the external parameter dictionaries, default is None.
         """
+        update_metrics()
         super(Config, self).__init__(model, dataset, config_file_list, config_dict)
 
     def _get_model_and_dataset(self, model, dataset):  # 获取模型和数据集名称
@@ -61,13 +63,13 @@ class Config(RecBole_Config):
         return final_model, final_model_class, final_dataset
 
     def _load_internal_config_dict(self, model, model_class, dataset):  # 加载内部已有配置
+        super()._load_internal_config_dict(model, model_class, dataset)
         current_path = os.path.dirname(os.path.realpath(__file__))
         overall_init_file = os.path.join(current_path, '../properties/overall.yaml')
         model_init_file = os.path.join(current_path, '../properties/model/' + model + '.yaml')
         sample_init_file = os.path.join(current_path, '../properties/dataset/sample.yaml')
         dataset_init_file = os.path.join(current_path, '../properties/dataset/' + dataset + '.yaml')
 
-        self.internal_config_dict = dict()
         for file in [overall_init_file, model_init_file, sample_init_file, dataset_init_file]:
             if os.path.isfile(file):
                 config_dict = self._update_internal_config_dict(file)
@@ -77,4 +79,3 @@ class Config(RecBole_Config):
                     ]
 
         self.internal_config_dict['MODEL_TYPE'] = model_class.type
-
